@@ -1,0 +1,22 @@
+# Dependencies & build output
+node_modules/
+build/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+anaconda_projects/
+.env
+
+# Model pickles — only the small tuned production model is tracked.
+# (Old 1.2GB rf300/root copies stay local: GitHub blocks files >100MB.)
+*.pkl
+!backend/loan_default_model.pkl
+
+# Large docs/archives not needed for deploy
+*.zip
+*.pdf
+*.xlsx
+*.docx

@@ -1,0 +1,9 @@
+/* Dashboard.css is intentionally minimal.
+   All dashboard styling now lives in the pastel theme (App.css),
+   mirroring the CardioCare frontend. This file only keeps the
+   legacy .dash-premium scope neutralised so old class names
+   cannot leak the previous dark theme. */
+.dash-premium .dash-hero {
+  background: linear-gradient(120deg, #F0EEF7 0%, #EFF2F8 100%);
+  border: 1px solid #E5E2E8;
+}

@@ -1,0 +1,30 @@
+# Render Blueprint — LoanGuard (FastAPI backend + React static frontend)
+# Usage: push this repo to GitHub, then Render Dashboard → New → Blueprint → select repo.
+# After deploy, if Render renames the API (e.g. loanguard-api-xxxx),
+# update REACT_APP_API_URL below to the real URL and redeploy the static site.
+
+services:
+  - type: web
+    name: loanguard-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+
+  - type: web
+    name: loanguard-web
+    runtime: static
+    rootDir: frontend/loan-default-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://loanguard-api.onrender.com

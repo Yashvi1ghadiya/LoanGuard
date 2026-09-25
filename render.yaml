@@ -28,4 +28,4 @@ services:
         destination: /index.html
     envVars:
       - key: REACT_APP_API_URL
-        value: https://loanguard-api.onrender.com
+        value: https://loanguard-api-zqoo.onrender.com
